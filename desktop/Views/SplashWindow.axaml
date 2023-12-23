@@ -1,0 +1,33 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:desktop.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:progRing="clr-namespace:AvaloniaProgressRing;assembly=AvaloniaProgressRing"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="desktop.Views.SplashWindow"
+        Width="800"
+        Height="450"
+        SystemDecorations="None"
+        Background="{StaticResource BackgroundColor}"
+        WindowStartupLocation="CenterScreen"
+        Icon="/Assets/logo.png"
+        Title="desktop">
+  
+ <Design.DataContext>
+
+  </Design.DataContext>
+
+  <Grid>
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+      <Image Source="/Assets/logo.png" Width="150"/>
+      <TextBlock FontFamily="{StaticResource RobotoBold}" TextAlignment="Center" FontSize="45" Text="Учебный отдел"/>
+      <TextBlock Text="Составление расписания и замен" FontFamily="{StaticResource RobotoLight}"/>
+    </StackPanel>
+    <StackPanel Spacing="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal">
+      <TextBlock Name="StatusTextBlock" VerticalAlignment="Center" Text="Загрузка сервисов..." FontFamily="{StaticResource RobotoLight}"/>
+      <progRing:ProgressRing Width="40" Height="40" Foreground="{StaticResource ForegroundColor}" IsActive="True" Margin="10"/>
+    </StackPanel>
+  </Grid> 
+  
+</Window>

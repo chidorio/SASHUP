@@ -1,0 +1,292 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Design.PreviewWith>
+    <Border Padding="20">
+      <!-- Add Controls for Previewer Here -->
+    </Border>
+  </Design.PreviewWith>
+
+  <!-- TextBox -->
+  <Style Selector="TextBox">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="FontFamily" Value="{StaticResource RobotoLight}"/>
+    <Setter Property="BorderBrush" Value="Black"/>
+    <Setter Property="Padding" Value="12"/>
+  </Style>
+  <Style Selector="TextBox /template/ Border#PART_BorderElement">
+    <Setter Property="BorderBrush" Value="{StaticResource AdditionalColor}"/>
+  </Style>
+  <Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderBrush" Value="{StaticResource ForegroundColor}"/>
+  </Style>
+  <Style Selector="TextBox:pointerover /template/ Border#PART_BorderElement">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderBrush" Value="{StaticResource ForegroundColor}"/>
+  </Style>
+  <!-- Button -->
+  <Style Selector="Button">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderBrush" Value="{StaticResource ForegroundColor}"/>
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="Padding" Value="5,12"/>
+    <Setter Property="FontFamily" Value="{StaticResource RobotoBold}"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+  </Style>
+  <Style Selector="Button:poinerover /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="Background" Value="{StaticResource ForegroundColor}"/>
+    <Setter Property="BorderBrush" Value="{StaticResource AdditionalColor}"/>
+  </Style>
+  <Style Selector="Button:focus /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="Background" Value="{StaticResource ForegroundColor}"/>
+    <Setter Property="BorderBrush" Value="{StaticResource ForegroundColor}"/>
+  </Style>
+  <!-- ProgressBar -->
+  <Style Selector="ProgressBar.loading">
+    <Setter Property="Background" Value="#32424C"/>
+    <Setter Property="Foreground">
+      <Setter.Value>
+        <LinearGradientBrush StartPoint="0%,50%" EndPoint="100%,50%">
+          <GradientStop Color="#32424C" Offset="0"/>
+          <GradientStop Color="#455A68" Offset="0.5"/>
+          <GradientStop Color="#32424C" Offset="1"/>
+        </LinearGradientBrush>
+      </Setter.Value>
+    </Setter>
+    <Setter Property="VerticalAlignment" Value="Stretch"/>
+    <Setter Property="IsIndeterminate" Value="True"/>
+  </Style>
+  <!-- ListBox.menu -->
+  <Style Selector="ListBox.menu">
+    <Setter Property="Background" Value="Transparent"/>
+  </Style>
+  <Style Selector="ListBox.menu > ListBoxItem">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="Padding" Value="0"/>
+  </Style>
+  <Style Selector="ListBox.menu > ListBoxItem:pointerover /template/ ContentPresenter">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="Foreground" Value="{StaticResource ForegroundColor}"/>
+  </Style>
+  <Style Selector="ListBox.menu > ListBoxItem:selected /template/ ContentPresenter">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderThickness" Value="0,0,5,0"/>
+    <Setter Property="BorderBrush" Value="{StaticResource ForegroundColor}"/>
+    <Setter Property="Foreground" Value="{StaticResource ForegroundColor}"/>
+  </Style>
+  <!-- ListBox.catalog -->
+  <Style Selector="ListBox.catalog > ListBoxItem">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="Padding" Value="0"/>
+    <Setter Property="CornerRadius" Value="35"/>
+    <Setter Property="Width" Value="250"/>
+    <Setter Property="Height" Value="350"/>
+    <Setter Property="Foreground" Value="White"/>
+  </Style>
+  <Style Selector="ListBox.catalog > ListBoxItem:pointerover /template/ ContentPresenter">
+    <Setter Property="RenderTransform" Value="scale(1.01)"/>
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="Background" Value="Transparent"/>
+  </Style>
+  <Style Selector="ListBox.catalog > ListBoxItem:selected /template/ ContentPresenter">
+    <Setter Property="RenderTransform" Value="scale(1.18)"/>
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="Foreground" Value="{StaticResource ForegroundColor}"/>
+  </Style>
+  <!-- Button pagination -->
+  <Style Selector="Button.pagination">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="Padding" Value="0"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+    <Setter Property="FontSize" Value="16"/>
+    <Setter Property="FontFamily" Value="{StaticResource RobotoLight}"/>
+    <Setter Property="BorderThickness" Value="0"/>
+  </Style>
+  <Style Selector="Button.pagination:pointeriver /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="Foreground" Value="{StaticResource ForegroundColor}"/>
+    <Setter Property="BorderThickness" Value="0"/>
+  </Style>
+  <Style Selector="Button.pagination:pressed /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="RenderTransform" Value="scale(1.02)"/>
+    <Setter Property="Foreground" Value="{StaticResource ForegroundColor}"/>
+    <Setter Property="BorderThickness" Value="0"/>
+  </Style>
+  <Style Selector="Button.pagination:focus /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="RenderTransform" Value="scale(1.02)"/>
+    <Setter Property="Foreground" Value="{StaticResource ForegroundColor}"/>
+    <Setter Property="BorderThickness" Value="0"/>
+  </Style>
+  <!-- ComboBox pagination -->
+  <Style Selector="ComboBox.pagination:pointerover /template/ Border#Background">
+    <Setter Property="BorderBrush" Value="{StaticResource ForegroundColor}"/>
+  </Style>
+  <Style Selector="ComboBox.pagination:focus /template/ Border#Background">
+    <Setter Property="BorderBrush" Value="{StaticResource ForegroundColor}"/>
+  </Style>
+  <Style Selector="ComboBox.pagination:pressed /template/ Border#Background">
+    <Setter Property="BorderBrush" Value="{StaticResource ForegroundColor}"/>
+  </Style>
+  <!-- TextBox Search -->
+  <Style Selector="TextBox.search">
+    <Setter Property="BorderThickness" Value="0"/>
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="FontFamily" Value="{StaticResource RobotoLight}"/>
+    <Setter Property="FontSize" Value="20"/>
+  </Style>
+  <Style Selector="TextBox.search:focus /template/ Border#PART_BorderElement">
+    <Setter Property="BorderThickness" Value="0,0,0,2"/>
+    <Setter Property="BorderBrush" Value="{StaticResource ForegroundColor}"/>
+  </Style>
+  <Style Selector="TextBox.search:pointerover /template/ Border#PART_BorderElement">
+    <Setter Property="BorderThickness" Value="0,0,0,2"/>
+    <Setter Property="BorderBrush" Value="White"/>
+  </Style>
+  <Style Selector="TextBox.search:focus:pointerover /template/ Border#PART_BorderElement">
+    <Setter Property="BorderThickness" Value="0,0,0,2"/>
+    <Setter Property="BorderBrush" Value="{StaticResource ForegroundColor}"/>
+  </Style>
+  <Style Selector="TextBox.search:focus:pointerover">
+    <Setter Property="Foreground" Value="{StaticResource ForegroundColor}"/>
+  </Style>
+  <!-- Filters -->
+  <Style Selector="CheckBox.filter">
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="CornerRadius" Value="10"/>
+    <Setter Property="BorderBrush" Value="White"/>
+    <Setter Property="Height" Value="30"/>
+    <Setter Property="FontFamily" Value="{StaticResource RobotoLight}"/>
+    <Setter Property="Padding" Value="10,0"/>
+  </Style>
+  <Style Selector="CheckBox.filter /template/ Grid#RobotGrid>Grid">
+    <Setter Property="Margin" Value="10,0,0,0"/>
+  </Style>
+  <Style Selector="CheckBox.filter:pointerover /template/ Border#PART_Border">
+    <Setter Property="BorderBrush" Value="{StaticResource ForegroundColor}"/>
+  </Style>
+  <Style Selector="CheckBox.filter:checked">
+    <Setter Property="Foreground" Value="{StaticResource ForegroundColor}"/>
+  </Style>
+  <Style Selector="CheckBox.filter:checked /template/ Border#NormalRectangle">
+    <Setter Property="Background" Value="{StaticResource ForegroundColor}"/>
+  </Style>
+  <!-- Sort -->
+  <Style Selector="CheckBox.sort:checked /template/ Border#NormalRectangle">
+    <Setter Property="Background" Value="{StaticResource ForegroundColor}"/>
+  </Style>
+  <Style Selector="ToggleButton.sort:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderBrush" Value="Transparent"/>
+  </Style>
+  <Style Selector="ToggleButton.sort:focus /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderBrush" Value="Transparent"/>
+  </Style>
+  <Style Selector="ToggleButton.sort:checked /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderBrush" Value="Transparent"/>
+  </Style>
+  <Style Selector="ToggleButton.sort:disabled /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Foreground" Value="{StaticResource AdditionalColor}"/>
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderBrush" Value="Transparent"/>
+  </Style>
+  <!-- moreAction -->
+  <Style Selector="SplitButton.moreAction /template/ Button#PART_PrimaryButton">
+    <Setter Property="IsVisible" Value="False"/>
+  </Style>
+  <Style Selector="SplitButton.moreAction /template/ Button#PART_SecondaryButton">
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="MinWidth" Value="20"/>
+    <Setter Property="Width" Value="20"/>
+    <Setter Property="Height" Value="20"/>
+  </Style>
+  <Style Selector="SplitButton.moreAction /template/ Button#PART_SecondaryButton > PathIcon">
+    <Setter Property="Data" Value="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 
+    0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12, 14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,
+    2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z"/>
+  </Style>
+  <Style Selector="SplitButton.moreAction /template/ Button#PART_SecondaryButton">
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderBrush" Value="White"/>
+    <Setter Property="BorderThickness" Value="2"/>
+  </Style>
+  <Style Selector="SplitButton.moreAction /template/ Button#PART_SecondaryButton:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Foreground" Value="{StaticResource ForegroundColor}"/>
+    <Setter Property="Background" Value="Transparent"/>
+  </Style>
+  <Style Selector="SplitButton.moreAction:flyout-open /template/ Button#PART_SecondaryButton /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Background" Value="White"/>
+    <Setter Property="Foreground" Value="{StaticResource ForegroundColor}"/>
+    <Setter Property="BorderThickness" Value="2"/>
+    <Setter Property="BorderBrush" Value="{StaticResource ForegroundColor}"/>
+  </Style>
+  <Style Selector="MenuFlyoutPresenter.moreAction">
+    <Setter Property="Width" Value="25"/>
+    <Setter Property="Padding" Value="0"/>
+  </Style>
+  <Style Selector="MenuFlyoutPresenter.moreAction > MenuItem">
+    <Setter Property="Width" Value="25"/>
+    <Setter Property="Height" Value="25"/>
+    <Setter Property="Padding" Value="0"/>
+  </Style>
+  <Style Selector="MenuFlyoutPresenter.moreAction > MenuItem /template/ Viewbox#PART_IconPresenter">
+    <Setter Property="Width" Value="25"/>
+    <Setter Property="Height" Value="25"/>
+  </Style>
+  <Style Selector="MenuFlyoutPresenter.moreAction">
+    <Setter Property="Width" Value="25"/>
+    <Setter Property="Height" Value="100"/>
+    <Setter Property="BorderThickness" Value="0"/>
+    <Setter Property="Background" Value="{StaticResource ForegroundColor}"/>
+  </Style>
+  <!-- addEdit -->
+  <Style Selector="ComboBox.addEdit">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="FontFamily" Value="{StaticResource RobotoLight}"/>
+    <Setter Property="Padding" Value="17"/>
+  </Style>
+  <Style Selector="ComboBox.addEdit /template/ Border#Background">
+    <Setter Property="Margin" Value="0,7,0,0"/>
+  </Style>
+  <Style Selector="ComboBox.addEdit:pointerover /template/ Border#Background">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderBrush" Value="{StaticResource ForegroundColor}"/>
+  </Style>
+  <Style Selector="ComboBox.addEdit:focused:pressed /template/ Border#Background">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderBrush" Value="{StaticResource ForegroundColor}"/>
+  </Style>
+  <Style Selector="ComboBox.addEdit /template/ TextBlock#PlaceholderTextBlock">
+    <Setter Property="IsVisible" Value="True"/>
+    <Setter Property="Background" Value="{StaticResource ForegroundColor}"/>
+    <Setter Property="HorizontalAlignment" Value="Left"/>
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="Margin" Value="10,-5,0,0"/>
+    <Setter Property="VerticalAlignment" Value="Top"/>
+  </Style>
+  <Style Selector="TextBox.addEdit">
+    <Setter Property="Padding" Value="17"/>
+  </Style>
+  <Style Selector="TextBox.addEdit /template/ TextBlock#PART_FloatingWatermark">
+    <Setter Property="IsVisible" Value="True"/>
+    <Setter Property="Text" Value="{TemplateBinding Tag}"/>
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="Margin" Value="0,-20,0,0"/>
+    <Setter Property="Background" Value="{StaticResource ForegroundColor}"/>
+    <Setter Property="VerticalAlignment" Value="Top"/>
+    <Setter Property="HorizontalAlignment" Value="Left"/>
+  </Style>
+  <Style Selector="TextBox.addEdit /template/ Border#PART_BorderElement">
+    <Setter Property="Margin" Value="0,7,0,0"/>
+  </Style>
+</Styles>

@@ -1,0 +1,76 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
+        xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="1280"
+        Height="720"
+        xmlns:vm="clr-namespace:desktop.ViewModels"
+        x:Class="desktop.Views.MainWindow"
+        x:DataType="vm:MainViewModel"
+        Title="MainWindow">
+
+        <Grid>
+                <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <!-- Main menu -->
+                <Border Background="{StaticResource BackgroundColor}">
+                        <ScrollViewer>
+                                <StackPanel Margin="0,10" Spacing="10" Orientation="Vertical">
+                                        <ContentControl Margin="0,50,0,0" Content="{Binding User}">
+                                                <ContentControl.ContentTemplate>
+                                                        <DataTemplate>
+                                                                <StackPanel Margin="20" Spacing="20" Orientation="Vertical">
+                                                                        <Grid>
+                                                                                <Border ClipToBounds="True" Width="100" Height="100" CornerRadius="100" HorizontalAlignment="Center">
+                                                                                        <asyncImageLoader:AdvancedImage Stretch="UniformToFill" Name="avatar"
+                                                                                        Source="{Binding Image, Converter={StaticResource imageConv}, TargetNullValue='/Assets/noImage.png'}"/>
+                                                                                </Border>
+                                                                                <Border Width="100" ClipToBounds="True" Height="100" CornerRadius="100">
+                                                                                        <ProgressBar Classes="loading">
+                                                                                                <ProgressBar.IsVisible>
+                                                                                                        <MultiBinding Converter="{x:Static BoolConverters.Or}">
+                                                                                                                <Binding ElementName="avatar" Path="IsLoading"/>
+                                                                                                                <Binding Path="$parent[Window].DataContext.IsUserInfoLoading"/>
+                                                                                                        </MultiBinding>
+                                                                                                </ProgressBar.IsVisible>
+                                                                                        </ProgressBar>
+                                                                                </Border>
+                                                                        </Grid>
+                                                                        <Grid>
+                                                                                <StackPanel Orientation="Vertical">
+                                                                                        <TextBlock FontFamily="{StaticResource RobotoLight}" Foreground="White" Text="{Binding Role}" HorizontalAlignment="Center"/>
+                                                                                </StackPanel>
+                                                                                <Border CornerRadius="10" IsVisible="{Binding $parent[Window].DataContext.IsUserInfoLoading}">
+                                                                                        <ProgressBar Classes="loading"/>
+                                                                                </Border>
+                                                                        </Grid>
+                                                                </StackPanel>
+                                                        </DataTemplate>
+                                                </ContentControl.ContentTemplate>
+                                        </ContentControl>
+                                        <ListBox SelectedItem="{Binding SelectedMenuItem}" Margin="50,0,0,0" Classes="menu" Padding="0" ItemsSource="{Binding Menu}">
+                                                <ListBox.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                                <StackPanel Orientation="Vertical" Spacing="20"/>
+                                                        </ItemsPanelTemplate>
+                                                </ListBox.ItemsPanel>
+                                                <ListBox.ItemTemplate>
+                                                        <DataTemplate>
+                                                                <StackPanel Spacing="10" Orientation="Horizontal">
+                                                                        <materialIcons:MaterialIcon Width="25" Height="25" VerticalAlignment="Center" Kind="{Binding Icon}"/>
+                                                                        <TextBlock VerticalAlignment="Center" Text="{Binding Name}"/>
+                                                                </StackPanel>
+                                                        </DataTemplate>
+                                                </ListBox.ItemTemplate>
+                                        </ListBox>
+                                </StackPanel>
+                        </ScrollViewer>
+                </Border>
+                <ContentControl Grid.Column="1" Content="{Binding SelectedViewModel}"/>
+        </Grid>
+</Window>

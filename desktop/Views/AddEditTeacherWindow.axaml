@@ -1,0 +1,61 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:desktop.ViewModels"
+        xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
+        CanResize="False"
+        Width="1280"
+        Height="720"
+        Background="{StaticResource BackgroundColor}"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="desktop.Views.AddEditTeacherWindow"
+        x:DataType="vm:AddEditTeacherViewModel"
+        Title="AddEditTeacherWindow">
+  <Grid RowDefinitions=".35*,.65*">
+    <!-- Cover -->
+    <Border Background="{StaticResource ForegroundColor}">
+      <Grid>
+        <asyncImageLoader:AdvancedImage x:Name="substrate" Stretch="UniformToFill" Source="{Binding Teacher.Image, TargetNullValue=null,Converter={StaticResource imageConv}}"/>
+        <Border Background="Transparent">
+          <Border.ContextFlyout>
+            <MenuFlyout>
+              <MenuItem Header="Загрузить новое изображение" CommandParameter="image" Command="{Binding ChangeImageTeacherCommand}"/>
+              <MenuItem Header="Удалить изображение" CommandParameter="image"
+                IsEnabled="{Binding Teacher.Image,Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                Command="{Binding RemoveImageCommand}"/>
+            </MenuFlyout>
+          </Border.ContextFlyout>
+        </Border>
+        <Border BorderThickness="8" BorderBrush="{StaticResource BackgroundColor}" Background="{StaticResource ForegroundColor}"
+          Margin="0,100,0,0" ClipToBounds="True" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="10"
+          Width="200" Height="200">
+          <asyncImageLoader:AdvancedImage Background="Transparent" Stretch="UniformToFill"
+            Source="{Binding Teacher.Image,Converter={StaticResource imageConv},TargetNullValue='/Assets/noImage.png'}">
+            <asyncImageLoader:AdvancedImage.ContextFlyout>
+              <MenuFlyout>
+                <MenuItem Header="Загрузить новое изображение" CommandParameter="image" Command="{Binding ChangeImageTeacherCommand}"/>
+                <MenuItem Header="Удалить изображение" CommandParameter="image"
+                  IsEnabled="{Binding Teacher.Image,Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                  Command="{Binding RemoveImageCommand}"/>
+            </MenuFlyout>
+            </asyncImageLoader:AdvancedImage.ContextFlyout>
+          </asyncImageLoader:AdvancedImage>
+        </Border>
+      </Grid>
+    </Border>
+    <StackPanel Spacing="20" Margin="40" Orientation="Vertical" Grid.Row="1">
+      <TextBlock Foreground="White" FontWeight="Bold" FontFamily="{StaticResource RobotoBold}" FontSize="25" Text="{Binding Title}"/>
+      <WrapPanel Orientation="Horizontal">
+        <TextBox Tag="Фамилия" Classes="addEdit" Margin="10,0" Width="250" Text="{Binding Teacher.Family}" VerticalAlignment="Center"  Watermark="Фамилия преподавателя"/>
+        <TextBox Tag="Имя" Classes="addEdit" Margin="10,0" Width="250" Text="{Binding Teacher.Name}" VerticalAlignment="Center" Watermark="Имя преподавателя"/>
+        <TextBox Tag="Отчество" Classes="addEdit" Margin="10,0" Width="250" Text="{Binding Teacher.Patronymic}" VerticalAlignment="Center" Watermark="Отчество преподавателя"/>
+        <ComboBox PlaceholderText="Статус преподавателя" Classes="addEdit" Margin="10,0" Width="250" ItemsSource="{Binding StatusTeacher}"
+          SelectedValueBinding="{Binding Id}" SelectedValue="{Binding Teacher.IdStatusTeacher}" DisplayMemberBinding="{Binding Name}" VerticalAlignment="Center"/>
+        <ComboBox PlaceholderText="Тип трудоустройства" Classes="addEdit" Margin="10,0" Width="250" ItemsSource="{Binding TypeEmployment}"
+          SelectedValueBinding="{Binding Id}" SelectedValue="{Binding Teacher.IdTypeEmployment}" DisplayMemberBinding="{Binding Name}" VerticalAlignment="Center"/>
+      </WrapPanel>
+      <Button HorizontalAlignment="Right" Content="Сохранить" Command="{Binding SaveCommand}"/>
+    </StackPanel>
+  </Grid>
+</Window>

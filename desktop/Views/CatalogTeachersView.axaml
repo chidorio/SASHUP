@@ -1,0 +1,174 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:material="using:Material.Icons.Avalonia"
+        xmlns:vm="using:desktop.ViewModels"
+        xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:DataType="vm:CatalogTeachersViewModel"
+        x:Class="desktop.Views.CatalogTeachersView">
+  <Grid RowDefinitions="*,*">
+    <Grid Grid.Row="1">
+      <ListBox Background="#4F585E" SelectedItem="{Binding SelectedTeacher}" ScrollViewer.HorizontalScrollBarVisibility="Auto"
+        ScrollViewer.VerticalScrollBarVisibility="Disabled" AutoScrollToSelectedItem="True" Grid.Row="1" Classes="catalog"
+        ItemsSource="{Binding Teachers}">
+        <ListBox.ItemsPanel>
+          <ItemsPanelTemplate>
+            <StackPanel Orientation="Horizontal"></StackPanel>
+          </ItemsPanelTemplate>
+        </ListBox.ItemsPanel>
+        <ListBox.ItemTemplate>
+          <DataTemplate>
+            <StackPanel Margin="25">
+              <Grid HorizontalAlignment="Center" Height="170" Width="100">
+                <Border ClipToBounds="True" CornerRadius="15">
+                  <asyncImageLoader:AdvancedImage Stretch="UniformToFill" Name="imgTeacher" Source="{Binding ImageTeacher,Converter={StaticResource imageConv}}"/>
+                </Border>
+                <Border ClipToBounds="True" CornerRadius="15" IsVisible="{Binding #imgTeacher.IsLoading,FallbackValue=True}">
+                  <ProgressBar Classes="loading"/>
+                </Border>
+                <SplitButton Margin="-8" HorizontalAlignment="Right" VerticalAlignment="Top" Classes="moreAction">
+                  <SplitButton.Flyout>
+                    <MenuFlyout FlyoutPresenterClasses="moreAction" Placement="Bottom">
+                      <MenuItem Command="{Binding $parent[ListBox].DataContext.EditTeacherCommand}" CommandParameter="{Binding IdTeacher}" ToolTip.Tip="Редактировать">
+                        <MenuItem.Icon>
+                          <material:MaterialIconExt Kind="PuzzleEditOutline"/>
+                        </MenuItem.Icon>
+                      </MenuItem>
+                      <MenuItem Command="{Binding $parent[ListBox].DataContext.RemoveTeacherCommand}" CommandParameter="{Binding IdTeacher}" ToolTip.Tip="Удалить">
+                        <MenuItem.Icon>
+                          <material:MaterialIconExt Kind="DeleteOutline"/>
+                        </MenuItem.Icon>
+                      </MenuItem>
+                    </MenuFlyout>
+                  </SplitButton.Flyout>
+                </SplitButton>
+              </Grid>
+              <TextBlock TextAlignment="Center" Height="50" Margin="0,5,0,0" FontWeight="Bold" Grid.Row="1" TextTrimming="CharacterEllipsis"
+                FontSize="16" FontFamily="{StaticResource RobotoLight}" Classes="FIOTeacher" TextWrapping="Wrap" Text="{Binding FIOTeacher}"/>
+            </StackPanel>
+          </DataTemplate>
+        </ListBox.ItemTemplate>
+      </ListBox>
+      <!-- Pagination -->
+      <StackPanel Spacing="10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20" Orientation="Horizontal">
+        <TextBlock VerticalAlignment="Center" Text="Количество элементов на странице"/>
+        <ComboBox Classes="pagination" SelectedValue="{Binding OwnerParameters.SizePage}" x:Name="sizePageCb" Width="75" ItemsSource="{Binding PageCounts}"/>
+        <TextBlock VerticalAlignment="Center">
+          <TextBlock.Text>
+            <MultiBinding StringFormat="{}{0}-{1} из {2}">
+              <Binding Path="OwnerParameters.PageNumber"/>
+              <Binding Path="Teachers.Count"/>
+              <Binding Path="CountTeachers"/>
+            </MultiBinding>
+          </TextBlock.Text>
+        </TextBlock>
+      </StackPanel>
+      <StackPanel Spacing="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="20" Orientation="Horizontal">
+        <Button Command="{Binding GoFirstPage}" Name="skipPrvBtn" Classes="pagination">
+          <material:MaterialIconExt Size="30" Kind="SkipPreviousOutline"/>
+        </Button>
+        <Button Command="{Binding PreviousPage}" Classes="pagination">
+          <StackPanel Orientation="Horizontal">
+            <material:MaterialIconExt Size="30" Kind="MenuLeftOutline"/>
+            <TextBlock VerticalAlignment="Center">Назад</TextBlock>
+          </StackPanel>
+        </Button>
+        <NumericUpDown Minimum="1" Maximum="{Binding CountPage}" Value="{Binding OwnerParameters.PageNumber}" AllowSpin="False" ShowButtonSpinner="False"/>
+        <TextBlock VerticalAlignment="Center" Text="{Binding CountPage,StringFormat='{}из {0}'}"/>
+        <Button Classes="pagination" Command="{Binding NextPage}">
+          <StackPanel Orientation="Horizontal">
+            <TextBlock VerticalAlignment="Center">Вперед</TextBlock>
+            <material:MaterialIconExt Size="30" Kind="MenuRightOutline"/>
+          </StackPanel>
+        </Button>
+        <Button Command="{Binding GoLastPage}" Classes="pagination">
+          <material:MaterialIconExt Size="30" Kind="MenuRightOutline"/>
+        </Button>
+      </StackPanel>
+    </Grid>
+    <Grid>
+      <asyncImageLoader:AdvancedImage Foreground="{StaticResource ForegroundColor}" Stretch="UniformToFill"
+        Source="{Binding SelectedTeacherDetails.SubstrateImage,TargetNullValue=null,Converter={StaticResource imageConv}}"/>
+      <Border>
+        <Border.Background>
+          <LinearGradientBrush StartPoint="50%,0%" EndPoint="50%,100%">
+            <GradientStop Color="#664F585E" Offset="0"/>
+            <GradientStop Color="#4F585E" Offset="1"/>
+          </LinearGradientBrush>
+        </Border.Background>
+      </Border>
+      <StackPanel IsVisible="{Binding !IsLoadingTeacherDetails}" Margin="20" MaxHeight="250" MaxWidth="650"
+        HorizontalAlignment="Right" Orientation="Vertical" VerticalAlignment="Bottom">
+        <TextBlock TextWrapping="Wrap" Foreground="White" FontSize="26" FontWeight="Bold" FontFamily="{StaticResource RobotoBold}"
+          Text="{Binding SelectedTeacherDelails.FIOTeacher}"/>
+        <TextBlock TextWrapping="Wrap" Foreground="White" FontSize="14" FontFamily="{StaticResource RobotoLight}"
+          Text="{Binding SelectedTeacherDelails.StatusTeacherTeacher}"/>
+        <TextBlock TextWrapping="Wrap" Foreground="White" FontSize="14" FontFamily="{StaticResource RobotoLight}"
+          Text="{Binding SelectedTeacherDelails.TypeEmploymentTeacher}"/>
+      </StackPanel>
+      <StackPanel Spacing="15" IsVisible="{Binding IsLoadingTeacherDetails}" Margin="20" MaxHeight="250" Width="650"
+        HorizontalAlignment="Right" Orientation="Vertical" VerticalAlignment="Bottom">
+        <Border ClipToBounds="True" CornerRadius="15" Height="30">
+          <ProgressBar Classes="loading"/>
+        </Border>
+        <Border ClipToBounds="True" HorizontalAlignment="Left" Width="250" CornerRadius="15" Height="30">
+          <ProgressBar Classes="loading"/>
+        </Border>
+        <Border ClipToBounds="True" HorizontalAlignment="Left" Width="150" CornerRadius="15" Height="40">
+          <ProgressBar Classes="loading"/>
+        </Border>
+        <Border ClipToBounds="True" CornerRadius="15" Height="100">
+          <ProgressBar Classes="loading"/>
+        </Border>
+      </StackPanel>
+      <!-- Search and Filtering -->
+      <DockPanel Margin="20" Height="50" VerticalAlignment="Top">
+        <Button DockPanel.Dock="Right" Content="Добавить преподавателя" Command="{Binding AddTeacher}"/>
+        <SplitButton Margin="20,0" DockPanel.Dock="Right">
+          <SplitButton.Content>
+            <StackPanel Spacing="5" Orientation="Horizontal" DockPanel.Dock="Right" >
+              <material:MaterialIconExt Size="25" Kind="Sort"/>
+              <TextBlock VerticalAlignment="Center" Text="Сортировка" />
+            </StackPanel>
+          </SplitButton.Content>
+          <SplitButton.Flyout>
+            <Flyout>
+              <ScrollViewer Height="350" Padding="10" Width="250">
+                <ItemsControl ItemsSource="{Binding SortElements}" ItemTemplate="{StaticResource sortTemplate}"/>
+              </ScrollViewer>
+            </Flyout>
+          </SplitButton.Flyout>
+        </SplitButton>
+        <SplitButton Margin="20,0" DockPanel.Dock="Right">
+          <SplitButton.Content>
+            <StackPanel Spacing="5" Orientation="Horizontal">
+              <material:MaterialIconExt Size="25" Kind="FilterCogOutline"/>
+              <TextBlock VerticalAlignment="Center" Text="Фильтры"/>
+            </StackPanel>
+          </SplitButton.Content>
+          <SplitButton.Flyout>
+            <Flyout>
+              <ScrollViewer Height="450" Padding="10" Width="350">
+                <ItemsControl ItemsSource="{Binding Filters}" ItemTemplate="{StaticResource filterCategoryTemplate}">
+                  <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                      <StackPanel Orientation="Vertical" Spacing="20"/>
+                    </ItemsPanelTemplate>
+                  </ItemsControl.ItemsPanel>
+                </ItemsControl>
+              </ScrollViewer>
+            </Flyout>
+          </SplitButton.Flyout>
+        </SplitButton>
+        <TextBox Text="{Binding OwnerParameters.SearchString}" Watermark="Поиск по фамилии преподавателя" 
+          VerticalAlignment="Stretch" DockPanel.Dock="Left" HorizontalAlignment="Stretch" Classes="search">
+          <TextBox.InnerLeftContent>
+            <material:MaterialIconExt Kind="Magnify" Size="25"/>
+          </TextBox.InnerLeftContent>
+        </TextBox>
+      </DockPanel>
+    </Grid>
+  </Grid>
+</UserControl>

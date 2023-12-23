@@ -1,0 +1,39 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        xmlns:vm="clr-namespace:desktop.ViewModels"
+        x:DataType="vm:LoginViewModel"
+        xmlns:progRing="clr-namespace:AvaloniaProgressRing;assembly=AvaloniaProgressRing"
+        x:Class="desktop.Views.LoginWindow"
+        Background="{StaticResource BackgroundColor}"
+        WindowStartupLocation="CenterScreen"
+        Width="800"
+        Height="450"
+        CanResize="False"
+        Title="LoginWindow">
+  <Grid Margin="0,40" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="0.5*"/>
+      <ColumnDefinition Width="0.5*"/>
+    </Grid.ColumnDefinitions>
+    <Border Height="250" BorderBrush="{StaticResource AdditionalColor}" Grid.Column="0" BorderThickness="0,0,2,0">
+      <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+        <Image Source="/Assets/logo.png" Width="50"/>
+        <TextBlock VerticalAlignment="Center" FontFamily="{StaticResource RobotoBold}" TextAlignment="Center" FontSize="45" Text="Учебный отдел"/>
+      </StackPanel>
+    </Border>
+    <StackPanel Width="250" Spacing="20" Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top">
+      <TextBox Text="{Binding AuthorizationData.Login}" HorizontalAlignment="Stretch" Watermark="Логин пользователя"/>
+      <TextBox Text="{Binding AuthorizationData.Password}" HorizontalAlignment="Stretch" PasswordChar="•" Watermark="Пароль пользователя"/>
+      <Button HorizontalAlignment="Stretch" Command="{Binding Login}">
+        <StackPanel Spacing="10" Orientation="Horizontal">
+          <progRing:ProgressRing IsActive="{Binding IsLogin}" IsVisible="{Binding IsLogin}" Foreground="White" Width="20" Height="20"/>
+          <TextBlock VerticalAlignment="Center" Text="АВТОРИЗАЦИЯ"/>
+        </StackPanel>
+      </Button>
+    </StackPanel>
+
+  </Grid>
+</Window>

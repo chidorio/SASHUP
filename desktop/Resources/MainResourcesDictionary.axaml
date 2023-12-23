@@ -1,0 +1,55 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:material="using:Material.Icons.Avalonia"
+                    xmlns:tools="using:desktop.Tools"
+                    xmlns:conv="using:desktop.Converters">
+  <!-- Colors -->
+  <SolidColorBrush Color="#29363F" x:Key="BackgroundColor"/>
+  <SolidColorBrush Color="#6ED9A1" x:Key="ForegroundColor"/>
+  <SolidColorBrush Color="#66737C" x:Key="AdditionalColor"/>
+  <SolidColorBrush Color="#F70742" x:Key="ErrorColor"/>
+  <!-- Fonts -->
+  <FontFamily x:Key="RobotoBold">avers://Assets/Fonts/Roboto-Bold.ttf</FontFamily>
+  <FontFamily x:Key="RobotoLight">avers://Assets/Fonts/Roboto-Light.ttf</FontFamily>
+  <!-- Converters -->
+  <conv:ImageNameToFullNameConverter x:Key="imageConv"/>
+  <!-- FilterTemplate -->
+  <DataTemplate x:Key="filterTemplate" DataType="tools:Filter">
+    <CheckBox Margin="0,0,10,0" Classes="filter" IsChecked="{Binding IsPick}" Content="{Binding NameFilter}"/>
+  </DataTemplate>
+  <!-- FilterCategoryTemplate -->
+  <DataTemplate x:Key="filterCategoryTemplate" DataType="tools:FilterCategory">
+    <StackPanel Spacing="10" Orientation="Vertical">
+      <TextBlock Text="{Binding NameCategory}" FontFamily="{StaticResource RobotoBold}"
+        FontWeight="Bold" Foreground="{StaticResource ForegroundColor}"/>
+      <Rectangle Height="2" Fill="White"/>
+      <ItemsControl ItemsSource="{Binding Filters}" ItemTemplate="{StaticResource filterTemplate}">
+        <ItemsControl.ItemsPanel>
+          <ItemsPanelTemplate>
+            <WrapPanel Orientation="Horizontal"/>
+          </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+      </ItemsControl>
+    </StackPanel>
+  </DataTemplate>
+  <!-- SortElement -->
+  <DataTemplate x:Key="sortTemplate" DataType="tools:SortElement">
+    <DockPanel>
+      <material:MaterialIcon Cursor="Hand" Width="30" DockPanel.Dock="Left" Kind="Drag"/>
+      <CheckBox Classes="sort" DockPanel.Dock="Right" IsChecked="{Binding IsSelected}">
+        <CheckBox.Content>
+          <DockPanel Width="150">
+            <ToggleButton Classes="sort" IsEnabled="{Binding IsSelected}" IsChecked="{Binding Sort.Direction}" x:Name="dirBtn"
+              Width="30" Height="30" DockPanel.Dock="Right">
+              <Grid>
+                <material:MaterialIcon Kind="SortAscending" IsVisible="{Binding !#dirBtn.IsChecked}"/>
+                <material:MaterialIcon Kind="SortDescending" IsVisible="{Binding !#dirBtn.IsChecked}"/>
+              </Grid>
+            </ToggleButton>
+            <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center" FontFamily="{StaticResource RobotoLight}" Text="{Binding NameSort}"/>
+          </DockPanel>
+        </CheckBox.Content>
+      </CheckBox>
+    </DockPanel>
+  </DataTemplate>
+</ResourceDictionary>
