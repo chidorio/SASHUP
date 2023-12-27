@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qf5QGY9cx80dQXZA812gHa1J3UL7cYdSjLk5UIpfhnc//OKIDMGL5/QyO28Yh7vlA+BsGjBUz4DL48Ao7Oogxw==",
+  "dgSpecHash": "29Z5u0l4jDU3eHEmw6B01AExG/A+noZkOOjXJVp9B1W5FAtDbnW2oRet6M+J3gT1ClRU1c3ZSj6NfayVp6sOlw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Solnce\\Desktop\\Study_department\\api\\api.csproj",
+  "projectFilePath": "c:\\Users\\Solnce\\Desktop\\test\\SASHUP\\api\\api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Solnce\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Solnce\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

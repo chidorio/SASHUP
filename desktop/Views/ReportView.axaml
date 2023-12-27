@@ -1,0 +1,25 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:desktop.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:DataType="vm:ReportViewModel"
+             Background="#4F585E"
+             xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia"
+             x:Class="desktop.Views.ReportView">
+              <Grid RowDefinitions="200,*" ColumnDefinitions="*,*,*">
+                <TextBlock Text="{Binding Title}" FontSize="30" Foreground="White"
+                      FontFamily="{StaticResource RobotoBold}" FontWeight="Bold" Margin="20"/>
+                <StackPanel Spacing="20" Orientation="Horizontal">
+                  <TextBlock VerticalAlignment="Center" Text="Дата формирования отчета - с"/>
+                  <CalendarDatePicker SelectedDate="{Binding DateRange.DateOne}" Watermark="Начальная дата"/>  
+                  <TextBlock VerticalAlignment="Center" Text="по"/>
+                  <CalendarDatePicker SelectedDate="{Binding DateRange.DateTwo}" Watermark="Конечная дата"/>
+                </StackPanel>
+                <lvc:PieChart LegendPosition="Bottom" Series="{Binding TeacherStatistics, Converter={StaticResource teachConv}}" Grid.Column="0" Grid.Row="1" Foreground="White"/>
+                <lvc:CartesianChart LegendPosition="Bottom" Series="{Binding RelativeFrequencies, Converter={StaticResource relConv}}" Grid.Column="1" Grid.Row="1"/>
+                <lvc:CartesianChart LegendPosition="Bottom" Series="{Binding AccumlatedRelativeFrequencies, Converter={StaticResource accConv}}" Grid.Column="2" Grid.Row="1"/>
+              </Grid>
+
+</UserControl>

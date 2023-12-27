@@ -38,6 +38,7 @@ public partial class SplashWindow : Window
             Locator.CurrentMutable.Register<IStatusTeacherRepositosy>(()=>RestService.For<IStatusTeacherRepositosy>(Locator.Current.GetService<HttpClient>()));
             Locator.CurrentMutable.Register<ITypeEmploymentRepository>(()=>RestService.For<ITypeEmploymentRepository>(Locator.Current.GetService<HttpClient>()));
             Locator.CurrentMutable.Register<IImageService>(()=>RestService.For<IImageService>(Locator.Current.GetService<HttpClient>()));
+            Locator.CurrentMutable.Register<IStatisticRepository>(()=>RestService.For<IStatisticRepository>(Locator.Current.GetService<HttpClient>()));
             SplatRegistrations.RegisterLazySingleton<IAccessTokenRepository,AccessTokenRepository>();
             SplatRegistrations.RegisterLazySingleton<IUpdateTokenService,UpdateTokenService>();
             SplatRegistrations.RegisterLazySingleton<IFilePickerService,FilePickerservice>();
@@ -50,6 +51,7 @@ public partial class SplashWindow : Window
             SplatRegistrations.Register<LoginViewModel>();
             SplatRegistrations.Register<MainViewModel>();
             SplatRegistrations.Register<AddEditTeacherViewModel>();
+            SplatRegistrations.Register<ReportViewModel>();
             SplatRegistrations.RegisterLazySingleton<IViewNavigation,WindowsNavigation>();
             SplatRegistrations.RegisterLazySingleton<INotificationService,NotificationService>();
             SplatRegistrations.SetupIOC();

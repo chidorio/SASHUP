@@ -13,6 +13,10 @@
   <FontFamily x:Key="RobotoLight">avers://Assets/Fonts/Roboto-Light.ttf</FontFamily>
   <!-- Converters -->
   <conv:ImageNameToFullNameConverter x:Key="imageConv"/>
+  <conv:TeacherStatisticToPieSeriesConverter x:Key="teachConv" />
+  <conv:RelativeFrequenciesToColumnSeriesConverter x:Key="relConv" />
+  <conv:AccumulatedToCartesianSeriesConverter x:Key="accConv" />
+
   <!-- FilterTemplate -->
   <DataTemplate x:Key="filterTemplate" DataType="tools:Filter">
     <CheckBox Margin="0,0,10,0" Classes="filter" IsChecked="{Binding IsPick}" Content="{Binding NameFilter}"/>

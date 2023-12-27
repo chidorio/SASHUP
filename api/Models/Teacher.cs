@@ -16,7 +16,9 @@ public partial class Teacher
     public int IdTypeEmployment { get; set; }
 
     public int IdStatusTeacher { get; set; }
+
     public string? Image { get; set; }
+
     public virtual ICollection<Change> Changes { get; } = new List<Change>();
 
     public virtual StatusTeacher IdStatusTeacherNavigation { get; set; } = null!;

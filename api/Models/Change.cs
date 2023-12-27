@@ -11,7 +11,7 @@ public partial class Change
 
     public int IdGroup { get; set; }
 
-    public int IdDate { get; set; }
+    public DateTime? Date { get; set; }
 
     public int IdSubject { get; set; }
 
@@ -20,8 +20,6 @@ public partial class Change
     public int IdCabinets { get; set; }
 
     public virtual Cabinet IdCabinetsNavigation { get; set; } = null!;
-
-    public virtual Date IdDateNavigation { get; set; } = null!;
 
     public virtual Group IdGroupNavigation { get; set; } = null!;
 

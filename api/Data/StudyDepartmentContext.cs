@@ -22,8 +22,6 @@ public partial class StudyDepartmentContext : DbContext
 
     public virtual DbSet<Change> Changes { get; set; }
 
-    public virtual DbSet<Date> Dates { get; set; }
-
     public virtual DbSet<DayWeek> DayWeeks { get; set; }
 
     public virtual DbSet<Group> Groups { get; set; }
@@ -45,7 +43,7 @@ public partial class StudyDepartmentContext : DbContext
     public virtual DbSet<TypeEmployment> TypeEmployments { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Name=ConnectionStrings:DefaultConnection");
+        => optionsBuilder.UseSqlServer("Name=ConnectionString:DefaultConnection");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -76,8 +74,8 @@ public partial class StudyDepartmentContext : DbContext
 
         modelBuilder.Entity<Change>(entity =>
         {
+            entity.Property(e => e.Date).HasColumnType("date");
             entity.Property(e => e.IdCabinets).HasColumnName("Id_Cabinets");
-            entity.Property(e => e.IdDate).HasColumnName("Id_Date");
             entity.Property(e => e.IdGroup).HasColumnName("Id_Group");
             entity.Property(e => e.IdNumberPair).HasColumnName("Id_Number_pair");
             entity.Property(e => e.IdSubject).HasColumnName("Id_Subject");
@@ -87,11 +85,6 @@ public partial class StudyDepartmentContext : DbContext
                 .HasForeignKey(d => d.IdCabinets)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Changes_Cabinets");
-
-            entity.HasOne(d => d.IdDateNavigation).WithMany(p => p.Changes)
-                .HasForeignKey(d => d.IdDate)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Changes_Date");
 
             entity.HasOne(d => d.IdGroupNavigation).WithMany(p => p.Changes)
                 .HasForeignKey(d => d.IdGroup)
@@ -112,13 +105,6 @@ public partial class StudyDepartmentContext : DbContext
                 .HasForeignKey(d => d.IdTeacher)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Changes_Teachers");
-        });
-
-        modelBuilder.Entity<Date>(entity =>
-        {
-            entity.ToTable("Date");
-
-            entity.Property(e => e.Name).HasMaxLength(50);
         });
 
         modelBuilder.Entity<DayWeek>(entity =>
@@ -225,6 +211,7 @@ public partial class StudyDepartmentContext : DbContext
             entity.Property(e => e.Family).HasMaxLength(50);
             entity.Property(e => e.IdStatusTeacher).HasColumnName("Id_Status_teacher");
             entity.Property(e => e.IdTypeEmployment).HasColumnName("Id_Type_employment");
+            entity.Property(e => e.Image).HasMaxLength(50);
             entity.Property(e => e.Name).HasMaxLength(50);
             entity.Property(e => e.Patronymic).HasMaxLength(50);
 

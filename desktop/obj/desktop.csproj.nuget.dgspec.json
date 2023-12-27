@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Solnce\\Desktop\\Study_department\\desktop\\desktop.csproj": {}
+    "c:\\Users\\Solnce\\Desktop\\test\\SASHUP\\desktop\\desktop.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Solnce\\Desktop\\Study_department\\desktop\\desktop.csproj": {
+    "c:\\Users\\Solnce\\Desktop\\test\\SASHUP\\desktop\\desktop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Solnce\\Desktop\\Study_department\\desktop\\desktop.csproj",
+        "projectUniqueName": "c:\\Users\\Solnce\\Desktop\\test\\SASHUP\\desktop\\desktop.csproj",
         "projectName": "desktop",
-        "projectPath": "c:\\Users\\Solnce\\Desktop\\Study_department\\desktop\\desktop.csproj",
+        "projectPath": "c:\\Users\\Solnce\\Desktop\\test\\SASHUP\\desktop\\desktop.csproj",
         "packagesPath": "C:\\Users\\Solnce\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Solnce\\Desktop\\Study_department\\desktop\\obj\\",
+        "outputPath": "c:\\Users\\Solnce\\Desktop\\test\\SASHUP\\desktop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Solnce\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -71,6 +71,10 @@
             "Deadpikle.AvaloniaProgressRing": {
               "target": "Package",
               "version": "[0.10.3, )"
+            },
+            "LiveChartsCore.SkiaSharpView.Avalonia": {
+              "target": "Package",
+              "version": "[2.0.0-rc2, )"
             },
             "Material.Icons.Avalonia": {
               "target": "Package",

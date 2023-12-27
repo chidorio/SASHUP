@@ -21,6 +21,9 @@ public class MainViewModel : ViewModelBase
     private IStatusTeacherRepositosy _statusTeacherRepositosy;
     private ITypeEmploymentRepository _typeEmploymentRepository;
     private readonly IDialogService _dialogService;
+
+    private IStatisticRepository _statisticRepository;
+    private readonly Lazy<ReportViewModel> _reportViewModel;
     public MainViewModel(IUserReository userReository,
                             IAuthorizationRepository authorizationRepository,
                             IAccessTokenRepository accessTokenRepository,
@@ -31,7 +34,8 @@ public class MainViewModel : ViewModelBase
                             ITeacherRepository teacherRepository,
                             IStatusTeacherRepositosy statusTeacherRepositosy,
                             ITypeEmploymentRepository typeEmploymentRepository,
-                            IDialogService dialogService) : base(notificationService,updateTokenService)
+                            IDialogService dialogService,
+                            IStatisticRepository statisticRepository) : base(notificationService,updateTokenService)
     {
         _userReository = userReository;
         _authorizationRepository = authorizationRepository;
@@ -41,12 +45,15 @@ public class MainViewModel : ViewModelBase
         _statusTeacherRepositosy = statusTeacherRepositosy;
         _typeEmploymentRepository = typeEmploymentRepository;
         _dialogService = dialogService;
+        _statisticRepository = statisticRepository;
         GetUserInfoCommand = ReactiveCommand.CreateFromTask<User>(GetUserInfo);
         GetUserInfoCommand.ThrownExceptions.Subscribe(async exc => CommandExc(exc,GetUserInfoCommand));
         GetUserInfoCommand.IsExecuting.ToProperty(this, x => x.IsUserInfoLoading, out _isUserInfoLoading);
         _user = GetUserInfoCommand.ToProperty(this, x => x.User);
         GetUserInfoCommand.Execute().Subscribe();
         _catalogTeachersViewModel = new Lazy<CatalogTeachersViewModel>(()=>new CatalogTeachersViewModel(teacherRepository,accessTokenRepository,notificationService,updateTokenService,statusTeacherRepositosy,typeEmploymentRepository,dialogService,viewNavigation));
+        _reportViewModel = new Lazy<ReportViewModel>(()=> new ReportViewModel(accessTokenRepository, updateTokenService,
+            notificationService, _statisticRepository));
         ExitCommang = ReactiveCommand.CreateFromTask(Exit);
         ExitCommang.ThrownExceptions.Subscribe(async x => CommandExc(x, ExitCommang));
         this.WhenAnyValue(t=>t.SelectedMenuItem).Where(t=>t!=null).Subscribe((x) =>
@@ -55,6 +62,8 @@ public class MainViewModel : ViewModelBase
                 Exit();
             else if (x.Name=="Преподаватели")
                 SelectedViewModel = _catalogTeachersViewModel.Value;
+            else if(x.Name == "Отчеты")
+                SelectedViewModel = _reportViewModel.Value;
         });
     }
     private readonly ObservableAsPropertyHelper<bool> _isUserInfoLoading;

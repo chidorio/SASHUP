@@ -27,7 +27,10 @@ C:\Users\Solnce\.nuget\packages\deadpikle.avaloniaprogressring\0.10.3\lib\net6.0
 C:\Users\Solnce\.nuget\packages\colortextblock.avalonia\11.0.2\lib\net6.0\ColorTextBlock.Avalonia.dll
 C:\Users\Solnce\.nuget\packages\dialoghost.avalonia\0.7.7\lib\netstandard2.0\DialogHost.Avalonia.dll
 C:\Users\Solnce\.nuget\packages\dynamicdata\7.9.5\lib\net6.0\DynamicData.dll
-C:\Users\Solnce\.nuget\packages\harfbuzzsharp\2.8.2.3\lib\net6.0\HarfBuzzSharp.dll
+C:\Users\Solnce\.nuget\packages\harfbuzzsharp\7.3.0\lib\net6.0\HarfBuzzSharp.dll
+C:\Users\Solnce\.nuget\packages\livechartscore\2.0.0-rc2\lib\net6.0\LiveChartsCore.dll
+C:\Users\Solnce\.nuget\packages\livechartscore.skiasharpview.avalonia\2.0.0-rc2\lib\net6.0\LiveChartsCore.SkiaSharpView.Avalonia.dll
+C:\Users\Solnce\.nuget\packages\livechartscore.skiasharpview\2.0.0-rc2\lib\net6.0\LiveChartsCore.SkiaSharpView.dll
 C:\Users\Solnce\.nuget\packages\markdown.avalonia.tight\11.0.2\lib\net6.0\Markdown.Avalonia.dll
 C:\Users\Solnce\.nuget\packages\material.icons.avalonia\2.0.1\lib\netstandard2.0\Material.Icons.Avalonia.dll
 C:\Users\Solnce\.nuget\packages\material.icons\2.0.3\lib\netstandard2.0\Material.Icons.dll
@@ -63,6 +66,7 @@ C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.16\ref\net6.0\netsta
 C:\Users\Solnce\.nuget\packages\reactiveui\18.3.1\lib\net6.0\ReactiveUI.dll
 C:\Users\Solnce\.nuget\packages\refit\7.0.0\lib\net6.0\Refit.dll
 C:\Users\Solnce\.nuget\packages\skiasharp\2.88.6\lib\net6.0\SkiaSharp.dll
+C:\Users\Solnce\.nuget\packages\skiasharp.harfbuzz\2.88.6\lib\net6.0\SkiaSharp.HarfBuzz.dll
 C:\Users\Solnce\.nuget\packages\splat\14.4.1\lib\net6.0\Splat.dll
 C:\Users\Solnce\.nuget\packages\sqlitepclraw.bundle_e_sqlite3\2.1.2\lib\netstandard2.0\SQLitePCLRaw.batteries_v2.dll
 C:\Users\Solnce\.nuget\packages\sqlitepclraw.core\2.1.2\lib\netstandard2.0\SQLitePCLRaw.core.dll

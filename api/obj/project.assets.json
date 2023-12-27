@@ -3951,11 +3951,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Solnce\\Desktop\\Study_department\\api\\api.csproj",
+      "projectUniqueName": "C:\\Users\\Solnce\\Desktop\\test\\SASHUP\\api\\api.csproj",
       "projectName": "api",
-      "projectPath": "C:\\Users\\Solnce\\Desktop\\Study_department\\api\\api.csproj",
+      "projectPath": "C:\\Users\\Solnce\\Desktop\\test\\SASHUP\\api\\api.csproj",
       "packagesPath": "C:\\Users\\Solnce\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Solnce\\Desktop\\Study_department\\api\\obj\\",
+      "outputPath": "C:\\Users\\Solnce\\Desktop\\test\\SASHUP\\api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Solnce\\AppData\\Roaming\\NuGet\\NuGet.Config",
