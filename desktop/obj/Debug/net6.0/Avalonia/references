@@ -26,6 +26,8 @@ C:\Users\Solnce\.nuget\packages\avalonia.x11\11.0.5\lib\net6.0\Avalonia.X11.dll
 C:\Users\Solnce\.nuget\packages\deadpikle.avaloniaprogressring\0.10.3\lib\net6.0\AvaloniaProgressRing.dll
 C:\Users\Solnce\.nuget\packages\colortextblock.avalonia\11.0.2\lib\net6.0\ColorTextBlock.Avalonia.dll
 C:\Users\Solnce\.nuget\packages\dialoghost.avalonia\0.7.7\lib\netstandard2.0\DialogHost.Avalonia.dll
+C:\Users\Solnce\.nuget\packages\documentformat.openxml\3.0.0\lib\netstandard2.0\DocumentFormat.OpenXml.dll
+C:\Users\Solnce\.nuget\packages\documentformat.openxml.framework\3.0.0\lib\net6.0\DocumentFormat.OpenXml.Framework.dll
 C:\Users\Solnce\.nuget\packages\dynamicdata\7.9.5\lib\net6.0\DynamicData.dll
 C:\Users\Solnce\.nuget\packages\harfbuzzsharp\7.3.0\lib\net6.0\HarfBuzzSharp.dll
 C:\Users\Solnce\.nuget\packages\livechartscore\2.0.0-rc2\lib\net6.0\LiveChartsCore.dll
@@ -121,6 +123,7 @@ C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.16\ref\net6.0\System
 C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.16\ref\net6.0\System.IO.FileSystem.Watcher.dll
 C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.16\ref\net6.0\System.IO.IsolatedStorage.dll
 C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.16\ref\net6.0\System.IO.MemoryMappedFiles.dll
+C:\Users\Solnce\.nuget\packages\system.io.packaging\8.0.0\lib\net6.0\System.IO.Packaging.dll
 C:\Users\Solnce\.nuget\packages\system.io.pipelines\6.0.0\lib\net6.0\System.IO.Pipelines.dll
 C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.16\ref\net6.0\System.IO.Pipes.AccessControl.dll
 C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.16\ref\net6.0\System.IO.Pipes.dll

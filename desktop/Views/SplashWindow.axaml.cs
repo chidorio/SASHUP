@@ -12,7 +12,6 @@ using desktop.Services;
 using desktop.ViewModels;
 using Refit;
 using Splat;
-using static desktop.IFilePickerService;
 
 namespace desktop.Views;
 
@@ -42,6 +41,7 @@ public partial class SplashWindow : Window
             SplatRegistrations.RegisterLazySingleton<IAccessTokenRepository,AccessTokenRepository>();
             SplatRegistrations.RegisterLazySingleton<IUpdateTokenService,UpdateTokenService>();
             SplatRegistrations.RegisterLazySingleton<IFilePickerService,FilePickerservice>();
+            SplatRegistrations.RegisterLazySingleton<IReportService, TeacherReportService>();
             Locator.CurrentMutable.Register<IDialogService>(()=> new DesktopDialogService());
             if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {

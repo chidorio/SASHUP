@@ -16,6 +16,7 @@
                   <CalendarDatePicker SelectedDate="{Binding DateRange.DateOne}" Watermark="Начальная дата"/>  
                   <TextBlock VerticalAlignment="Center" Text="по"/>
                   <CalendarDatePicker SelectedDate="{Binding DateRange.DateTwo}" Watermark="Конечная дата"/>
+                  <Button Content="Создать отчет .docx" Command="{Binding CreateDocReportCommand}"/>
                 </StackPanel>
                 <lvc:PieChart LegendPosition="Bottom" Series="{Binding TeacherStatistics, Converter={StaticResource teachConv}}" Grid.Column="0" Grid.Row="1" Foreground="White"/>
                 <lvc:CartesianChart LegendPosition="Bottom" Series="{Binding RelativeFrequencies, Converter={StaticResource relConv}}" Grid.Column="1" Grid.Row="1"/>

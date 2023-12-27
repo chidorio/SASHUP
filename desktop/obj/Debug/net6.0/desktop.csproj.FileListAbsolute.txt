@@ -392,3 +392,6 @@ C:\Users\Solnce\Desktop\test\SASHUP\desktop\bin\Debug\net6.0\LiveChartsCore.dll
 C:\Users\Solnce\Desktop\test\SASHUP\desktop\bin\Debug\net6.0\LiveChartsCore.SkiaSharpView.dll
 C:\Users\Solnce\Desktop\test\SASHUP\desktop\bin\Debug\net6.0\LiveChartsCore.SkiaSharpView.Avalonia.dll
 C:\Users\Solnce\Desktop\test\SASHUP\desktop\bin\Debug\net6.0\SkiaSharp.HarfBuzz.dll
+C:\Users\Solnce\Desktop\test\SASHUP\desktop\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
+C:\Users\Solnce\Desktop\test\SASHUP\desktop\bin\Debug\net6.0\DocumentFormat.OpenXml.Framework.dll
+C:\Users\Solnce\Desktop\test\SASHUP\desktop\bin\Debug\net6.0\System.IO.Packaging.dll

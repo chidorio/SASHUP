@@ -2,6 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Splat;
+using desktop.Services;
 
 namespace desktop.Views;
 

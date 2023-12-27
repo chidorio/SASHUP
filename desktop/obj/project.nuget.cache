@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "pW/1NqDh3bh+ndJsZlMgJuB+cvUZZV1wnKmQdgE/KmvdjvwqT43aCYtLBLt5niZrlU4H5bOhTXUROtcOJuEX8A==",
+  "dgSpecHash": "WVZbomMA52Yz3VupKZlcI2Jq0j4n77xK95U7IOT1UleVhKMRmPwSOOXVKcMnfya18r7O84Z2EmN5U0vXQFmycA==",
   "success": true,
   "projectFilePath": "c:\\Users\\Solnce\\Desktop\\test\\SASHUP\\desktop\\desktop.csproj",
   "expectedPackageFiles": [
@@ -25,6 +25,8 @@
     "C:\\Users\\Solnce\\.nuget\\packages\\colortextblock.avalonia\\11.0.2\\colortextblock.avalonia.11.0.2.nupkg.sha512",
     "C:\\Users\\Solnce\\.nuget\\packages\\deadpikle.avaloniaprogressring\\0.10.3\\deadpikle.avaloniaprogressring.0.10.3.nupkg.sha512",
     "C:\\Users\\Solnce\\.nuget\\packages\\dialoghost.avalonia\\0.7.7\\dialoghost.avalonia.0.7.7.nupkg.sha512",
+    "C:\\Users\\Solnce\\.nuget\\packages\\documentformat.openxml\\3.0.0\\documentformat.openxml.3.0.0.nupkg.sha512",
+    "C:\\Users\\Solnce\\.nuget\\packages\\documentformat.openxml.framework\\3.0.0\\documentformat.openxml.framework.3.0.0.nupkg.sha512",
     "C:\\Users\\Solnce\\.nuget\\packages\\dynamicdata\\7.9.5\\dynamicdata.7.9.5.nupkg.sha512",
     "C:\\Users\\Solnce\\.nuget\\packages\\harfbuzzsharp\\7.3.0\\harfbuzzsharp.7.3.0.nupkg.sha512",
     "C:\\Users\\Solnce\\.nuget\\packages\\harfbuzzsharp.nativeassets.linux\\2.8.2.3\\harfbuzzsharp.nativeassets.linux.2.8.2.3.nupkg.sha512",
@@ -92,6 +94,7 @@
     "C:\\Users\\Solnce\\.nuget\\packages\\system.dynamic.runtime\\4.3.0\\system.dynamic.runtime.4.3.0.nupkg.sha512",
     "C:\\Users\\Solnce\\.nuget\\packages\\system.globalization\\4.3.0\\system.globalization.4.3.0.nupkg.sha512",
     "C:\\Users\\Solnce\\.nuget\\packages\\system.io\\4.3.0\\system.io.4.3.0.nupkg.sha512",
+    "C:\\Users\\Solnce\\.nuget\\packages\\system.io.packaging\\8.0.0\\system.io.packaging.8.0.0.nupkg.sha512",
     "C:\\Users\\Solnce\\.nuget\\packages\\system.io.pipelines\\6.0.0\\system.io.pipelines.6.0.0.nupkg.sha512",
     "C:\\Users\\Solnce\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
     "C:\\Users\\Solnce\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",

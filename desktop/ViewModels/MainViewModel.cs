@@ -23,6 +23,10 @@ public class MainViewModel : ViewModelBase
     private readonly IDialogService _dialogService;
 
     private IStatisticRepository _statisticRepository;
+
+    private readonly IFilePickerService _filePickerService;
+
+    private IReportService _reportService;
     private readonly Lazy<ReportViewModel> _reportViewModel;
     public MainViewModel(IUserReository userReository,
                             IAuthorizationRepository authorizationRepository,
@@ -35,7 +39,9 @@ public class MainViewModel : ViewModelBase
                             IStatusTeacherRepositosy statusTeacherRepositosy,
                             ITypeEmploymentRepository typeEmploymentRepository,
                             IDialogService dialogService,
-                            IStatisticRepository statisticRepository) : base(notificationService,updateTokenService)
+                            IStatisticRepository statisticRepository,
+                            IReportService reportService,
+                            IFilePickerService filePickerService) : base(notificationService,updateTokenService)
     {
         _userReository = userReository;
         _authorizationRepository = authorizationRepository;
@@ -46,6 +52,8 @@ public class MainViewModel : ViewModelBase
         _typeEmploymentRepository = typeEmploymentRepository;
         _dialogService = dialogService;
         _statisticRepository = statisticRepository;
+        _reportService = reportService;
+        _filePickerService = filePickerService;
         GetUserInfoCommand = ReactiveCommand.CreateFromTask<User>(GetUserInfo);
         GetUserInfoCommand.ThrownExceptions.Subscribe(async exc => CommandExc(exc,GetUserInfoCommand));
         GetUserInfoCommand.IsExecuting.ToProperty(this, x => x.IsUserInfoLoading, out _isUserInfoLoading);
@@ -53,7 +61,7 @@ public class MainViewModel : ViewModelBase
         GetUserInfoCommand.Execute().Subscribe();
         _catalogTeachersViewModel = new Lazy<CatalogTeachersViewModel>(()=>new CatalogTeachersViewModel(teacherRepository,accessTokenRepository,notificationService,updateTokenService,statusTeacherRepositosy,typeEmploymentRepository,dialogService,viewNavigation));
         _reportViewModel = new Lazy<ReportViewModel>(()=> new ReportViewModel(accessTokenRepository, updateTokenService,
-            notificationService, _statisticRepository));
+            notificationService, _statisticRepository, _reportService, _filePickerService));
         ExitCommang = ReactiveCommand.CreateFromTask(Exit);
         ExitCommang.ThrownExceptions.Subscribe(async x => CommandExc(x, ExitCommang));
         this.WhenAnyValue(t=>t.SelectedMenuItem).Where(t=>t!=null).Subscribe((x) =>

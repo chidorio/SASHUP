@@ -16,6 +16,10 @@ public class ReportViewModel : ViewModelBase
   private readonly IAccessTokenRepository _accessTokenRepository;
   private readonly IStatisticRepository _statisticRepository;
 
+  private readonly IReportService _reportService;
+
+  private readonly IFilePickerService _filePickerService;
+
   private readonly ObservableAsPropertyHelper<IEnumerable<TeacherStatistic>> _teacherStatistics;
 
   private readonly ObservableAsPropertyHelper<bool> _isLoading;
@@ -29,6 +33,7 @@ public class ReportViewModel : ViewModelBase
 
   public ReactiveCommand<Unit,IEnumerable<TeacherStatistic>> LoadTeacherStatisticsCommand{get;}
 
+  public ReactiveCommand<Unit,Unit> CreateDocReportCommand {get;}
   public IEnumerable<TeacherStatistic> TeacherStatistics => _teacherStatistics.Value;
 
   public bool IsLoading => _isLoading.Value;
@@ -38,11 +43,13 @@ public class ReportViewModel : ViewModelBase
   public IEnumerable<float> AccumlatedRelativeFrequencies => _accumlatedRelativeFrequencies.Value;
 
   public ReportViewModel(IAccessTokenRepository accessTokenRepository, IUpdateTokenService updateTokenService, INotificationService notificationService,
-    IStatisticRepository statisticRepository) : base(notificationService,updateTokenService)
+    IStatisticRepository statisticRepository, IReportService reportService, IFilePickerService filePickerService) : base(notificationService,updateTokenService)
     {
       Title = "Отчет по количеству изменений";
       _accessTokenRepository = accessTokenRepository;
       _statisticRepository = statisticRepository;
+      _reportService = reportService;
+      _filePickerService = filePickerService;
 
       DateRange = new DateRange();
 
@@ -51,6 +58,8 @@ public class ReportViewModel : ViewModelBase
       LoadTeacherStatisticsCommand.ThrownExceptions.Subscribe(async x=> await CommandExc(x, LoadTeacherStatisticsCommand));
       LoadTeacherStatisticsCommand.IsExecuting.ToProperty(this,x=>x.IsLoading, out _isLoading);
       _teacherStatistics = LoadTeacherStatisticsCommand.ToProperty(this,x=>x.TeacherStatistics);
+
+      
 
       this.WhenAnyValue(x => x.TeacherStatistics)
         .Where(x=>x!=null)
@@ -77,5 +86,9 @@ public class ReportViewModel : ViewModelBase
           .Subscribe(_=>LoadTeacherStatisticsCommand.Execute().Subscribe());
 
         LoadTeacherStatisticsCommand.Execute().Subscribe();
+
+      CreateDocReportCommand = ReactiveCommand.CreateFromTask(async =>
+      _reportService.SaveDocument(TeacherStatistics.ToArray(), DateRange));
+      CreateDocReportCommand.ThrownExceptions.Subscribe(async x => CommandExc(x, CreateDocReportCommand));
     }
 }
