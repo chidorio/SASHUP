@@ -14,31 +14,31 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = desktop
-build_property.ProjectDir = c:\Users\Solnce\Desktop\test\SASHUP\desktop\
+build_property.ProjectDir = C:\Users\chidorio\Desktop\Study\SASHUP\desktop\
 
-[c:/Users/Solnce/Desktop/test/SASHUP/desktop/App.axaml]
+[C:/Users/chidorio/Desktop/Study/SASHUP/desktop/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[c:/Users/Solnce/Desktop/test/SASHUP/desktop/Resources/MainResourcesDictionary.axaml]
+[C:/Users/chidorio/Desktop/Study/SASHUP/desktop/Resources/MainResourcesDictionary.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[c:/Users/Solnce/Desktop/test/SASHUP/desktop/Styles/Styles.axaml]
+[C:/Users/chidorio/Desktop/Study/SASHUP/desktop/Styles/Styles.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[c:/Users/Solnce/Desktop/test/SASHUP/desktop/Views/AddEditTeacherWindow.axaml]
+[C:/Users/chidorio/Desktop/Study/SASHUP/desktop/Views/AddEditTeacherWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[c:/Users/Solnce/Desktop/test/SASHUP/desktop/Views/CatalogTeachersView.axaml]
+[C:/Users/chidorio/Desktop/Study/SASHUP/desktop/Views/CatalogTeachersView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[c:/Users/Solnce/Desktop/test/SASHUP/desktop/Views/LoginWindow.axaml]
+[C:/Users/chidorio/Desktop/Study/SASHUP/desktop/Views/LoginWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[c:/Users/Solnce/Desktop/test/SASHUP/desktop/Views/MainWindow.axaml]
+[C:/Users/chidorio/Desktop/Study/SASHUP/desktop/Views/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[c:/Users/Solnce/Desktop/test/SASHUP/desktop/Views/ReportView.axaml]
+[C:/Users/chidorio/Desktop/Study/SASHUP/desktop/Views/ReportView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[c:/Users/Solnce/Desktop/test/SASHUP/desktop/Views/SplashWindow.axaml]
+[C:/Users/chidorio/Desktop/Study/SASHUP/desktop/Views/SplashWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

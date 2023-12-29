@@ -7,10 +7,10 @@ namespace desktop;
 
 public interface IAuthorizationRepository
 {
-    [Post("/autorization/login")]
+    [Post("/Autorization/Login")]
     public Task<Token> Login([Body] Authorization authorization);
-    [Post("/authorization/updatetoken")]
+    [Post("/Autorization/UpdateToken")]
     public Task<Token> UpdateToken([Header("RefreshToken")] string refreshToken);
-    [Post("/authorization/logout")]
+    [Post("/Autorization/Logout")]
     public Task Logout([Authorize("Bearer")] string accessToken);
 }

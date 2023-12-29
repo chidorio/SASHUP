@@ -3946,19 +3946,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Solnce\\.nuget\\packages\\": {}
+    "C:\\Users\\chidorio\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Solnce\\Desktop\\test\\SASHUP\\api\\api.csproj",
+      "projectUniqueName": "C:\\Users\\chidorio\\Desktop\\Study\\SASHUP\\api\\api.csproj",
       "projectName": "api",
-      "projectPath": "C:\\Users\\Solnce\\Desktop\\test\\SASHUP\\api\\api.csproj",
-      "packagesPath": "C:\\Users\\Solnce\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Solnce\\Desktop\\test\\SASHUP\\api\\obj\\",
+      "projectPath": "C:\\Users\\chidorio\\Desktop\\Study\\SASHUP\\api\\api.csproj",
+      "packagesPath": "C:\\Users\\chidorio\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\chidorio\\Desktop\\Study\\SASHUP\\api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Solnce\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\chidorio\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3966,7 +3966,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4033,7 +4032,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

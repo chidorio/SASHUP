@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Solnce\\Desktop\\test\\SASHUP\\desktop\\desktop.csproj": {}
+    "C:\\Users\\chidorio\\Desktop\\Study\\SASHUP\\desktop\\desktop.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Solnce\\Desktop\\test\\SASHUP\\desktop\\desktop.csproj": {
+    "C:\\Users\\chidorio\\Desktop\\Study\\SASHUP\\desktop\\desktop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Solnce\\Desktop\\test\\SASHUP\\desktop\\desktop.csproj",
+        "projectUniqueName": "C:\\Users\\chidorio\\Desktop\\Study\\SASHUP\\desktop\\desktop.csproj",
         "projectName": "desktop",
-        "projectPath": "c:\\Users\\Solnce\\Desktop\\test\\SASHUP\\desktop\\desktop.csproj",
-        "packagesPath": "C:\\Users\\Solnce\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Solnce\\Desktop\\test\\SASHUP\\desktop\\obj\\",
+        "projectPath": "C:\\Users\\chidorio\\Desktop\\Study\\SASHUP\\desktop\\desktop.csproj",
+        "packagesPath": "C:\\Users\\chidorio\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\chidorio\\Desktop\\Study\\SASHUP\\desktop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Solnce\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\chidorio\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -135,7 +135,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

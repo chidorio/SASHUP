@@ -71,7 +71,7 @@ public partial class SplashWindow : Window
     try
     {
         var newTokens = await Locator.Current.GetService<IAuthorizationRepository>().UpdateToken(token);
-        await Locator.Current.GetService<IRefreshTokenRepository>().UpdateRefreshToken(token);
+        await Locator.Current.GetService<IRefreshTokenRepository>().UpdateRefreshToken(newTokens.RefreshToken);
         Locator.Current.GetService<IAccessTokenRepository>().AddAccessToken(newTokens.AccessToken);
         statusTextBlock.Text = "Входим в систему...";
         Locator.Current.GetService<IViewNavigation>().GoToAndCloseCurrent<MainViewModel>((ViewModelBase)DataContext);
